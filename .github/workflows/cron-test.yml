@@ -1,0 +1,17 @@
+name: cron動作確認
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17,47 * * * *"
+
+jobs:
+  cron-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 実行情報を表示
+        run: |
+          echo "現在のUTC時刻: $(date -u '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "現在の日本時間: $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "github.event_name: ${{ github.event_name }}"
+          echo "github.actor: ${{ github.actor }}"
