@@ -3,7 +3,7 @@ name: cron動作確認
 on:
   workflow_dispatch:
   schedule:
-   - cron: "26,56 * * * *"
+   - cron: "11,21 * * * *"
 
 jobs:
   cron-test:
